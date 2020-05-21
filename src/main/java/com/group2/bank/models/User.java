@@ -55,6 +55,17 @@ public class User {
         return balance;
     }
 
+    public void setBalance(Double depositAmount){
+        balanceSetter(depositAmount);
+    }
+
+    private void balanceSetter(Double depositAmount){
+
+        double newAmount = this.balance + depositAmount;
+        this.balance = newAmount;
+    }
+
+
     @Override
     public String toString() {
         return "User{" +
