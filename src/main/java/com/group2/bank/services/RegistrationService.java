@@ -3,7 +3,9 @@ package com.group2.bank.services;
 import com.group2.bank.models.User;
 import com.group2.bank.repositories.UserRepository;
 import com.group2.bank.resources.Response;
+import org.springframework.stereotype.Component;
 
+@Component
 public class RegistrationService {
 
     UserRepository userRepository;
@@ -23,8 +25,10 @@ public class RegistrationService {
         }
 
 
-
-        //TODO
-        return null;
+        //TODO All the validations are remaining
+        //all if conditions and if everything is good the following block saves this account
+        user = new User(firstName,lastName,userName,passWord,balance);
+        userRepository.save(user);
+        return new Response(200,"user account created");
     }
 }
