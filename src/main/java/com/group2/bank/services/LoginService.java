@@ -3,12 +3,15 @@ package com.group2.bank.services;
 import com.group2.bank.models.User;
 import com.group2.bank.repositories.UserRepository;
 import com.group2.bank.resources.Response;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class LoginService {
 
+    @Autowired
     UserRepository userRepository;
+
     public Response login(String userName, String password){
 
         User user = userRepository.findByUserName(userName);
