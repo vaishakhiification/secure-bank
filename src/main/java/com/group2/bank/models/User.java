@@ -62,7 +62,6 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", username='" + userName + '\'' +
-                ", password='" + password + '\'' +
                 ", balance=" + balance +
                 '}';
     }

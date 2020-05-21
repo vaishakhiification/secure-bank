@@ -4,8 +4,9 @@ import com.group2.bank.models.User;
 import com.group2.bank.repositories.UserRepository;
 import com.group2.bank.resources.Response;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
-@Component
+@Service
 public class RegistrationService {
 
     UserRepository userRepository;
