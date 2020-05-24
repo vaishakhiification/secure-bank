@@ -1,0 +1,50 @@
+<topbar [userInfo]="user"></topbar>
+<div class="content" role="main">
+  <div class="registration-form">
+    <header class="mb-2"><h2 class="card-title text-center">Edit Profile</h2></header>
+    <form>
+      <div class="form-row">
+        <div class="col form-group">
+          <label>First name</label>
+          <input type="text" class="form-control" [(ngModel)]="newUserInfo.firstName"
+                 [ngModelOptions]="{standalone: true}"
+                 required="required">
+        </div>
+        <div class="col form-group">
+          <label>Last name</label>
+          <input type="text" class="form-control" [(ngModel)]="newUserInfo.lastName"
+                 [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Username</label>
+        <div class="leftContainer">
+          <span style="font-weight: bold;">{{newUserInfo.userName}}</span>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" placeholder="" required="required">
+      </div>
+      <div class="form-group">
+        <label>Old Password</label>
+        <input type="password" class="form-control" placeholder="" required="required">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>Create New password</label>
+          <input class="form-control" type="password" [(ngModel)]="newUserInfo.password"
+                 [ngModelOptions]="{standalone: true}"
+                 required="required">
+        </div>
+        <div class="form-group col-md-6">
+          <label>Re-enter New password</label>
+          <input class="form-control" type="password" required="required">
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block" (click)="updateUser()">Save Changes</button>
+      </div>
+    </form>
+  </div>
+</div>

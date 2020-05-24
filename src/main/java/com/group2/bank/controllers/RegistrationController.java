@@ -15,7 +15,7 @@ public class RegistrationController {
     RegistrationService registrationService;
 
     @PostMapping("/register")
-    public Response register(@RequestBody User user){
+    public Response register(@RequestBody User user) {
 
         String firstName = user.getFirstName();
         String lastName = user.getLastName();
@@ -23,7 +23,7 @@ public class RegistrationController {
         String password = user.getPassword();
         Double balance = user.getBalance();
 
-        Response response = registrationService.createUserAccount(firstName,lastName,userName,password,balance);
+        Response response = registrationService.createUserAccount(firstName, lastName, userName, password, balance);
 
         return response;
     }

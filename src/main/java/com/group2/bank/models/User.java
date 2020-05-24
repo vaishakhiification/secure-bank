@@ -23,6 +23,9 @@ public class User {
 
     private double balance;
 
+    public User() {
+    }
+
     public User(String firstName, String lastName, String username, String password, double balance) {
         this.firstName = firstName;
         this.lastName = lastName;

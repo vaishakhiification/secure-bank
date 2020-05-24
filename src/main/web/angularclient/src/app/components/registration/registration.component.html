@@ -1,0 +1,68 @@
+<div class="content" role="main">
+  <div class="registration-form">
+    <header class="mb-2"><h2 class="card-title text-center">Sign up</h2></header>
+    <form>
+      <div class="form-row">
+        <div class="col form-group">
+          <label>First name</label>
+          <input type="text" class="form-control" [(ngModel)]="user.firstName" [ngModelOptions]="{standalone: true}"
+                 required="required">
+        </div>
+        <div class="col form-group">
+          <label>Last name</label>
+          <input type="text" class="form-control" [(ngModel)]="user.lastName" [ngModelOptions]="{standalone: true}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Username</label>
+        <input type="text" class="form-control" [(ngModel)]="user.userName" [ngModelOptions]="{standalone: true}"
+               required="required">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" placeholder="" required="required">
+      </div>
+      <!--      <div class="form-group" required="required">-->
+      <!--        <label class="custom-control custom-radio custom-control-inline">-->
+      <!--          <input class="custom-control-input" checked="" type="radio" name="gender" value="option1">-->
+      <!--          <span class="custom-control-label"> Male </span>-->
+      <!--        </label>-->
+      <!--        <label class="custom-control custom-radio custom-control-inline">-->
+      <!--          <input class="custom-control-input" type="radio" name="gender" value="option2">-->
+      <!--          <span class="custom-control-label"> Female </span>-->
+      <!--        </label>-->
+      <!--      </div>-->
+      <!--      <div class="form-row">-->
+      <!--        <div class="form-group col-md-6">-->
+      <!--          <label>City</label>-->
+      <!--          <input type="text" class="form-control">-->
+      <!--        </div>-->
+      <!--        <div class="form-group col-md-6">-->
+      <!--          <label>Country</label>-->
+      <!--          <select id="inputState" class="form-control">-->
+      <!--            <option> Choose...</option>-->
+      <!--            <option>Uzbekistan</option>-->
+      <!--            <option>Russia</option>-->
+      <!--            <option selected="">United States</option>-->
+      <!--            <option>India</option>-->
+      <!--            <option>Afganistan</option>-->
+      <!--          </select>-->
+      <!--        </div>-->
+      <!--      </div>-->
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label>Create password</label>
+          <input class="form-control" type="password" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}"
+                 required="required">
+        </div>
+        <div class="form-group col-md-6">
+          <label>Re-enter password</label>
+          <input class="form-control" type="password" required="required">
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block" (click)="registerUser()">Register</button>
+      </div>
+    </form>
+  </div>
+</div>

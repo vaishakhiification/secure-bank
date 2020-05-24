@@ -1,0 +1,11 @@
+<topbar [userInfo]="user"></topbar>
+<div class="content-box">
+  <div>
+    <div class="text-center">
+      <span>AVAILABLE BALANCE: </span>
+    </div>
+    <h2 class="text-center">{{user.balance | currency :"USD$" }}</h2>
+  </div>
+  <button type="button" class="btn btn-dark btn-block btn-lg" (click)="deposit()">DEPOSIT</button>
+  <button type="button" class="btn btn-dark btn-block btn-lg" (click)="withdraw()">WITHDRAW</button>
+</div>
