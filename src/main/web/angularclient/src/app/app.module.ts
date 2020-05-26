@@ -6,11 +6,14 @@ import {AppComponent} from './app.component';
 import {TopbarComponent} from './components/topbar/topbar.component';
 import {RegistrationComponent} from './components/registration/registration.component';
 import {LoginComponent} from './components/login/login.component';
-import {FormsModule} from "@angular/forms";
+import {FormsModule} from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
 import { DepositComponent } from './components/deposit/deposit.component';
 import { WithdrawComponent } from './components/withdraw/withdraw.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { NumericDirective } from './directives/numeric/numeric.directive';
+import { CurrencyDirective } from './directives/currency/currency.directive';
+import { CredentialsDirective } from './directives/credentails/credentials.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +24,10 @@ import { ProfileComponent } from './components/profile/profile.component';
     HomeComponent,
     DepositComponent,
     WithdrawComponent,
-    ProfileComponent
+    ProfileComponent,
+    NumericDirective,
+    CurrencyDirective,
+    CredentialsDirective
   ],
   imports: [
     BrowserModule,
