@@ -28,10 +28,10 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String lastName, String username, String password, double balance) {
+    public User(String firstName, String lastName, String userName, String password, double balance) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.userName = username;
+        this.userName = userName;
         this.password = password;
         this.balance = balance;
     }
@@ -48,7 +48,7 @@ public class User {
         return lastName;
     }
 
-    public String getUsername() {
+    public String getUserName() {
         return userName;
     }
 

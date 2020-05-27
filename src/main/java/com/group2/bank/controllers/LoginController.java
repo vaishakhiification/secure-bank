@@ -19,7 +19,7 @@ public class LoginController {
     @PostMapping("/login")
     public Response login(@RequestBody User user){
 
-        String userName = user.getUsername();
+        String userName = user.getUserName();
         String password = user.getPassword();
         Response response = loginService.login(userName,password);
         return response;

@@ -21,11 +21,11 @@ public class RegistrationController {
 
         String firstName = user.getFirstName();
         String lastName = user.getLastName();
-        String userName = user.getUsername();
+        String username = user.getUserName();
         String password = user.getPassword();
         Double balance = user.getBalance();
 
-        Response response = registrationService.createUserAccount(firstName, lastName, userName, password, balance);
+        Response response = registrationService.createUserAccount(firstName, lastName, username, password, balance);
 
         return response;
     }

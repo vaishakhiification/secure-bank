@@ -19,7 +19,7 @@ public class TransactionController {
     @PostMapping("/deposit")
     public Response deposit(@RequestBody User user, @RequestBody String depositAmount){
 
-        String username = user.getUsername();
+        String username = user.getUserName();
         String password = user.getPassword();
         Double depositAmt = Double.parseDouble(depositAmount);
 
@@ -29,7 +29,7 @@ public class TransactionController {
 
     @PostMapping("/withdraw")
     public Response withdraw(@RequestBody User user, @RequestBody String withdrawAmount){
-        String username = user.getUsername();
+        String username = user.getUserName();
         String password = user.getPassword();
         Double withdrawAmt = Double.parseDouble(withdrawAmount);
 
