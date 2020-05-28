@@ -7,7 +7,6 @@ import {DepositComponent} from './components/deposit/deposit.component';
 import {WithdrawComponent} from './components/withdraw/withdraw.component';
 import {ProfileComponent} from './components/profile/profile.component';
 import {ResetPasswordComponent} from "./components/reset-password/reset-password.component";
-// import {ResetPasswordComponent} from './components/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
