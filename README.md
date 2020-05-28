@@ -27,4 +27,6 @@ The features of this app include
 14. refresh the database tab
 15. Now everything is configured
 16. To run the application please run src/main/java/com.group2.bank/BankApplication.java
+17. You can also run the application from command line(we recommend using IntelliJ however)
+18. To run from command line go to the root folder of the project(bank-master) and type "mvn spring-boot:run"
 
