@@ -14,7 +14,7 @@ public class RegistrationService {
     @Autowired
     UserRepository userRepository;
 
-    public  Response createUserAccount(String firstName, String lastName, String userName, String password, Double balance){
+    public  Response createUserAccount(String firstName, String lastName, String userName, String password, Double balance,String securityAns){
 
         //this method will do all server side validations
 
@@ -85,8 +85,9 @@ public class RegistrationService {
         if(!Pattern.matches(regex,validBalance)){
             return new Response(409,"please enter a valid balance value");
         }
+
         //all if conditions and if everything is good the following block saves this account
-        user = new User(firstName,lastName,userName,password,balance);
+        user = new User(firstName,lastName,userName,password,balance, securityAns);
         userRepository.save(user);
         return new Response(200,"user account created");
     }

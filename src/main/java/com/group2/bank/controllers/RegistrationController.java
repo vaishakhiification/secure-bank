@@ -24,8 +24,9 @@ public class RegistrationController {
         String username = user.getUserName();
         String password = user.getPassword();
         Double balance = user.getBalance();
+        String securityAns = user.getSecurityAns();
 
-        Response response = registrationService.createUserAccount(firstName, lastName, username, password, balance);
+        Response response = registrationService.createUserAccount(firstName, lastName, username, password, balance,securityAns);
 
         return response;
     }
