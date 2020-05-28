@@ -7,7 +7,7 @@ The features of this app include
 1) creating an account
 2) logging in
 3) making transactions including deposit and withdraw
-4) editing profile
+4) editing profile(NOTE after editing the user is redirected to login)
 
 ## Assumptions
 1. We are making the assumption that our application will have an encryption mechanism like SSL, since this will prevent man in the middle attack. 
