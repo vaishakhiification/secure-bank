@@ -31,19 +31,19 @@
       <div class="form-group">
         <label>Old Password</label>
         <input type="password" class="form-control" placeholder="" [(ngModel)]="oldPassword"
-               [ngModelOptions]="{standalone: true}" required="required">
+               [ngModelOptions]="{standalone: true}" required="required" appCredentials>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label>Create New password</label>
           <input class="form-control" type="password" [(ngModel)]="newUserInfo.password"
                  [ngModelOptions]="{standalone: true}"
-                 required="required">
+                 required="required" appCredentials>
         </div>
         <div class="form-group col-md-6">
           <label>Re-enter New password</label>
           <input class="form-control" type="password" [(ngModel)]="newPassword"
-                 [ngModelOptions]="{standalone: true}" required="required">
+                 [ngModelOptions]="{standalone: true}" required="required" appCredentials>
         </div>
       </div>
       <div class="form-group">

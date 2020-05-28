@@ -15,10 +15,14 @@
   flex: 1;
 }
 
-.logoutLink:hover {
+.logoutLink h5:hover {
   color: #33AEFF;
 }
 
-.logoutLink {
+.logoutLink h5{
   color: #f7f7f7;
+}
+
+svg.logoutLink:hover {
+  fill: #33AEFF;
 }
