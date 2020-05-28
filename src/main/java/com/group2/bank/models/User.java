@@ -1,7 +1,6 @@
 package com.group2.bank.models;
 
 
-
 import javax.persistence.*;
 
 @Entity
@@ -33,7 +32,7 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String lastName, String userName, String password, double balance,String securityAns) {
+    public User(String firstName, String lastName, String userName, String password, double balance, String securityAns) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -62,6 +61,10 @@ public class User {
         return password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public double getBalance() {
         return balance;
     }
@@ -70,19 +73,18 @@ public class User {
         return securityAns;
     }
 
-    public void setBalance(boolean deposit, Double transactionAmount){
+    public void setSecurityAns(String securityAns) {
+        this.securityAns = securityAns;
+    }
+
+    public void setBalance(boolean deposit, Double transactionAmount) {
         double newAmount = 0.00;
-        if(deposit == true){
+        if (deposit == true) {
             newAmount = this.balance + transactionAmount;
-        }
-        else{
+        } else {
             newAmount = this.balance - transactionAmount;
         }
         this.balance = newAmount;
-    }
-
-    public void setSecurityAns(String securityAns) {
-        this.securityAns = securityAns;
     }
 
     @Override

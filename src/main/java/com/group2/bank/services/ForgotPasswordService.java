@@ -15,31 +15,23 @@ public class ForgotPasswordService {
     UserRepository userRepository;
 
     public Response resetPassword(String userName, String securityAnswer, String newPassword) {
-
         //Check and validate username and password
         String regex = "[_\\-\\.0-9a-z]+";
         if (!Pattern.matches(regex, userName)) {
             return new Response(409, "invalid username entered");
-
         }
         if (!Pattern.matches(regex, newPassword)) {
             return new Response(409, "invalid new Password entered");
-
         }
-
         User user = userRepository.findByUserName(userName);
-
         if (user == null) {
             return new Response(409, "User doesn't exist");
-
         }
-
         if (!securityAnswer.equalsIgnoreCase(user.getSecurityAns())) {
             return new Response(409, "incorrect security answer");
         }
-        user.setSecurityAns(securityAnswer);
+        user.setPassword(newPassword);
         userRepository.save(user);
         return new Response(200, "new password has been reset");
-
     }
 }
