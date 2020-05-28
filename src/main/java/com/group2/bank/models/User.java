@@ -36,6 +36,12 @@ public class User {
     @Column(name = "securityans")
     private String securityAns;
 
+    private String newPassword;
+
+    public String getNewPassword() {
+        return newPassword;
+    }
+
     public User() {
     }
 
@@ -80,6 +86,13 @@ public class User {
         return securityAns;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 
     //This method is used when the user is trying to make a transaction
     //boolean deposit field is true, if the transaction is a deposit
