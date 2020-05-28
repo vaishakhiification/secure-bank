@@ -7,7 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.regex.Pattern;
-
+/**
+ * The registration service takes care of registering a new user into the system
+ * This service performs all validation checks for all fields
+ * and returns a Response
+ */
 @Service
 public class RegistrationService {
 

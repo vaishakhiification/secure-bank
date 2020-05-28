@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Rest Controller for handling post login requests
  * Annotated with CORS to prevent Cross Origin Errors
+ * The client sends a username and password in the body
  */
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")

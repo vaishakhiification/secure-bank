@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Rest Controller for handling post forgot password service requests
  * Annotated with CORS to prevent Cross Origin Errors
+ * The client sends a user object which will contain the security answer added, new password requested
  */
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")

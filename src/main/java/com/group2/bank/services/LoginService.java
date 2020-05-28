@@ -10,6 +10,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.regex.Pattern;
 
+/**
+ * The login service takes care of logging the user into the system
+ * This service performs all validation checks
+ * and returns a logged in user in the response
+ */
 @Service
 public class LoginService {
 

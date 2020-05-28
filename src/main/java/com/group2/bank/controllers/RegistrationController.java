@@ -9,6 +9,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+
+/**
+ * Rest Controller for handling post registration requests
+ * Annotated with CORS to prevent Cross Origin Errors
+ * The client sends a user object which contains all required fields in the User Model
+ * This controller comes into action when client needs to register a new user
+ */
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class RegistrationController {

@@ -5,6 +5,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
+
+/**
+ * Starting point of the spring application
+ */
 @CrossOrigin
 @SpringBootApplication
 public class BankApplication {

@@ -9,6 +9,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.regex.Pattern;
 
+/**
+ * The forgot password service takes care of resetting the user password
+ * This service performs all validation checks
+ * and returns a Response object
+ */
 @Service
 public class ForgotPasswordService {
 

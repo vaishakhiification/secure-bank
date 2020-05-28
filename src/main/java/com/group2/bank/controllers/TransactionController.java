@@ -10,6 +10,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+/**
+ * Rest Controller for handling post transaction requests
+ * Annotated with CORS to prevent Cross Origin Errors
+ * The client sends a transaction object which contains all required fields in the Transactions Model
+ * This controller comes into action when client needs to deposit or withdraw money
+ * It has two post methods - one for deposit and one for withdraw
+ */
+
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
 public class TransactionController {

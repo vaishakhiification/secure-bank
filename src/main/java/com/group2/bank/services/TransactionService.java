@@ -9,7 +9,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.regex.Pattern;
 
-
+/**
+ * This service takes care of operations
+ * like depositing and withdrawing amounts from bank
+ * All services interact with the repository in some way
+ * maybe for validations or updations
+ */
 @Service
 public class TransactionService {
 

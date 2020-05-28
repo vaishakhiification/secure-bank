@@ -1,9 +1,14 @@
 package com.group2.bank.models;
-
-
-
 import javax.persistence.*;
 
+
+/**
+ * This is the User model. It is an entity
+ * The sqlite database bank0.db has a table mapped to this called user
+ * Each field in this model represents a column
+ * The annotations show column names as in the database
+ *
+ */
 @Entity
 @Table(name = "user")
 public class User {
@@ -70,6 +75,9 @@ public class User {
         return securityAns;
     }
 
+    //This method is used when the user is trying to make a transaction
+    //boolean deposit field is true, if the transaction is a deposit
+    //and false if it is a withdrawal
     public void setBalance(boolean deposit, Double transactionAmount){
         double newAmount = 0.00;
         if(deposit == true){
@@ -81,6 +89,9 @@ public class User {
         this.balance = newAmount;
     }
 
+    //This setter method is helpful when the
+    //user has forgotten the password
+    //and wants to change it using reset password option
     public void setSecurityAns(String securityAns) {
         this.securityAns = securityAns;
     }

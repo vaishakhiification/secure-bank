@@ -1,6 +1,9 @@
 package com.group2.bank.resources;
 
-//Class that represents a general JSON response object
+/**
+ * A response class is created to simplify Responses when sent to the client.
+ * It is a generic Response class
+ */
 public class Response {
 
     private long statusCode;
