@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
         if (result && result.statusCode === 200) {
           this.router.navigate(['home'], {state: {user: result.user}});
         } else {
-          alert("Error logging in!: " + result.responseMessage);
+          alert("Error: " + result.responseMessage);
         }
       }
     );

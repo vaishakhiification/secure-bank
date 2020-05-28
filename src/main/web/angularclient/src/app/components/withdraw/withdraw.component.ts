@@ -14,7 +14,13 @@ export class WithdrawComponent implements OnInit {
   withdrawalAmount: number;
 
   constructor(private router: Router, private userService: UserService) {
-    this.user = this.router.getCurrentNavigation().extras.state.user;
+    let state = this.router.getCurrentNavigation().extras.state;
+    if (!state) {
+      alert("Please login to proceed!");
+      this.router.navigate(['login'], {state: {user: this.user}});
+    } else {
+      this.user = state.user;
+    }
     this.withdrawalAmount = 0;
   }
 

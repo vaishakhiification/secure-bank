@@ -44,7 +44,7 @@ public class TransactionController {
         String password = user.getPassword();
         Double withdrawAmt = transaction.getAmount();
 
-        Response response = transactionService.deposit(username,password,withdrawAmt);
+        Response response = transactionService.withdraw(username,password,withdrawAmt);
         return response;
 
     }

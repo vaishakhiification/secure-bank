@@ -15,7 +15,13 @@ export class DepositComponent implements OnInit {
   depositAmount: number;
 
   constructor(private router: Router, private userService: UserService) {
-    this.user = this.router.getCurrentNavigation().extras.state.user;
+    let state = this.router.getCurrentNavigation().extras.state;
+    if (!state) {
+      alert("Please login to proceed!");
+      this.router.navigate(['login'], {state: {user: this.user}});
+    } else {
+      this.user = state.user;
+    }
     this.depositAmount = 0;
   }
 

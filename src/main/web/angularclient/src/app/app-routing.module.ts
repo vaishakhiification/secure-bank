@@ -22,7 +22,7 @@ const routes: Routes = [
   {path: 'withdraw', component: WithdrawComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'resetPassword', component: ResetPasswordComponent},
-  {path: '**', redirectTo: ''}
+  {path: '**', redirectTo: 'login'}
 ];
 
 @NgModule({

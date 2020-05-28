@@ -12,7 +12,6 @@ export class HomeComponent implements OnInit {
   user: User;
 
   constructor(private router: Router) {
-    // this.user = new User();
     let state = this.router.getCurrentNavigation().extras.state;
     if (!state) {
       alert("Please login to proceed!");

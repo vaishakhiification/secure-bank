@@ -12,8 +12,14 @@ export class ProfileComponent implements OnInit {
   newUserInfo: User;
 
   constructor(private router: Router) {
-    this.user = this.router.getCurrentNavigation().extras.state.user;
-    this.newUserInfo = Object.assign({}, this.user);
+    let state = this.router.getCurrentNavigation().extras.state;
+    if (!state) {
+      alert("Please login to proceed!");
+      this.router.navigate(['login'], {state: {user: this.user}});
+    } else {
+      this.user = state.user;
+      this.newUserInfo = Object.assign({}, this.user);
+    }
   }
 
   ngOnInit(): void {
