@@ -27,15 +27,19 @@ public class User {
     @Column(name = "balance")
     private double balance;
 
+    @Column(name = "securityans")
+    private String securityAns;
+
     public User() {
     }
 
-    public User(String firstName, String lastName, String userName, String password, double balance) {
+    public User(String firstName, String lastName, String userName, String password, double balance,String securityAns) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
         this.balance = balance;
+        this.securityAns = securityAns;
     }
 
     public long getId() {
@@ -62,6 +66,10 @@ public class User {
         return balance;
     }
 
+    public String getSecurityAns() {
+        return securityAns;
+    }
+
     public void setBalance(boolean deposit, Double transactionAmount){
         double newAmount = 0.00;
         if(deposit == true){
@@ -79,10 +87,10 @@ public class User {
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", username='" + userName + '\'' +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
                 ", balance=" + balance +
+                ", securityAns='" + securityAns + '\'' +
                 '}';
     }
-
-
 }
