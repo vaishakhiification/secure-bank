@@ -24,6 +24,8 @@ export class ProfileComponent implements OnInit {
       this.user = state.user;
       this.newUserInfo = Object.assign({}, this.user);
     }
+    this.newPassword = "";
+    this.oldPassword = "";
   }
 
   ngOnInit(): void {
