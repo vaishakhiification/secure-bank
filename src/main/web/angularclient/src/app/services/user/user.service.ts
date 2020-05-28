@@ -17,6 +17,7 @@ export class UserService {
   private readonly withdrawURL: string;
   private readonly resetPasswordURL: string;
   private readonly editProfileURL: string;
+  private readonly logoutURL: string;
 
   constructor(private http: HttpClient) {
     this.registerURL = 'http://localhost:8080/register';
@@ -25,6 +26,7 @@ export class UserService {
     this.withdrawURL = 'http://localhost:8080/withdraw';
     this.resetPasswordURL = 'http://localhost:8080/resetPassword';
     this.editProfileURL = 'http://localhost:8080/editProfile';
+    this.logoutURL = 'http://localhost:8080/logout';
   }
 
   public save(user: User) {
@@ -49,5 +51,9 @@ export class UserService {
 
   public editProfile(editProfileDetails: EditProfileDetails) {
     return this.http.post<Response>(this.editProfileURL, editProfileDetails);
+  }
+
+  public logout() {
+    return this.http.post<Response>(this.logoutURL, null);
   }
 }

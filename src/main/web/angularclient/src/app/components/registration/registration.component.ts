@@ -26,7 +26,7 @@ export class RegistrationComponent implements OnInit {
 
     this.userService.save(this.user).subscribe(result => {
       if (result && result.statusCode == 200) {
-        this.router.navigate(['home'], {state: {user: this.user}}).then(r => {
+        this.router.navigate(['login']).then(r => {
           alert("New Account Created!");
         });
       } else {

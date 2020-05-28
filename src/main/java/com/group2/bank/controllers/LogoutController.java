@@ -1,13 +1,10 @@
 package com.group2.bank.controllers;
 
-import com.group2.bank.models.User;
 import com.group2.bank.resources.Response;
-import com.group2.bank.resources.UserResponse;
 import com.group2.bank.services.LogoutService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -24,10 +21,8 @@ public class LogoutController {
     LogoutService logoutService;
 
     @PostMapping("/logout")
-    public Response login(){
-
+    public Response logout() {
         Response response = logoutService.logout();
         return response;
-
     }
 }
