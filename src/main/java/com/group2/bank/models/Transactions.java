@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 /**
  * The Transaction Controller requires an object of this type
- * and thus this class was created for convinience
+ * and thus this class was created for convenience
  */
 public class Transactions {
 

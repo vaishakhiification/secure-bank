@@ -23,12 +23,15 @@
         </div>
       </div>
       <div class="form-group">
-        <label>Email</label>
-        <input type="email" class="form-control" placeholder="" required="required">
+        <label>Security Question: Which is favorite vegetable?</label>
+        <label><i>Note: This answer will be used while resetting the password!!</i></label>
+        <input type="text" class="form-control" [(ngModel)]="newUserInfo.securityAns"
+               [ngModelOptions]="{standalone: true}">
       </div>
       <div class="form-group">
         <label>Old Password</label>
-        <input type="password" class="form-control" placeholder="" required="required">
+        <input type="password" class="form-control" placeholder="" [(ngModel)]="oldPassword"
+               [ngModelOptions]="{standalone: true}" required="required">
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
@@ -39,7 +42,8 @@
         </div>
         <div class="form-group col-md-6">
           <label>Re-enter New password</label>
-          <input class="form-control" type="password" required="required">
+          <input class="form-control" type="password" [(ngModel)]="newPassword"
+                 [ngModelOptions]="{standalone: true}" required="required">
         </div>
       </div>
       <div class="form-group">

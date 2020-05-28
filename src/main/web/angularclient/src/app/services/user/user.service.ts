@@ -4,6 +4,7 @@ import {User} from '../../models/user/user';
 import {Transaction} from "../../models/transaction/transaction";
 import {UserResponse} from "../../models/userResponse/user-response";
 import {Response} from "../../models/response/response";
+import {EditProfileDetails} from "../../models/editProfileDetails/edit-profile-details";
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,7 @@ export class UserService {
   private readonly depositURL: string;
   private readonly withdrawURL: string;
   private readonly resetPasswordURL: string;
+  private readonly editProfileURL: string;
 
   constructor(private http: HttpClient) {
     this.registerURL = 'http://localhost:8080/register';
@@ -22,6 +24,7 @@ export class UserService {
     this.depositURL = 'http://localhost:8080/deposit';
     this.withdrawURL = 'http://localhost:8080/withdraw';
     this.resetPasswordURL = 'http://localhost:8080/resetPassword';
+    this.editProfileURL = 'http://localhost:8080/editProfile';
   }
 
   public save(user: User) {
@@ -42,5 +45,9 @@ export class UserService {
 
   public resetPassword(user: User) {
     return this.http.post<Response>(this.resetPasswordURL, user);
+  }
+
+  public editProfile(editProfileDetails: EditProfileDetails) {
+    return this.http.post<Response>(this.editProfileURL, editProfileDetails);
   }
 }

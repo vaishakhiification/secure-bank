@@ -36,11 +36,11 @@ public class User {
     @Column(name = "securityans")
     private String securityAns;
 
-    private String newPassword;
-
-    public String getNewPassword() {
-        return newPassword;
-    }
+//    private String newPassword;
+//
+//    public String getNewPassword() {
+//        return newPassword;
+//    }
 
     public User() {
     }

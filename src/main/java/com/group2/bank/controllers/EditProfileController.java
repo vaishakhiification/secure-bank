@@ -1,6 +1,6 @@
 package com.group2.bank.controllers;
 
-import com.group2.bank.models.User;
+import com.group2.bank.models.EditProfileDetails;
 import com.group2.bank.resources.Response;
 import com.group2.bank.services.EditProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,15 +26,15 @@ public class EditProfileController {
     EditProfileService editProfileService;
 
     @PostMapping("/editProfile")
-    public Response editProfile(@RequestBody User user){
+    public Response editProfile(@RequestBody EditProfileDetails userProfileDetails) {
 
-        String username = user.getUserName();
-        String password = user.getPassword();
-        String newPassword = user.getNewPassword();
-        String newFirstName = user.getFirstName();
-        String newLastName = user.getLastName();
-        String newSecurityAnswer = user.getSecurityAns();
-        Response response = editProfileService.editProfile(username,password,newPassword,newFirstName,newLastName,newSecurityAnswer);
+        String username = userProfileDetails.getUserDetails().getUserName();
+        String password = userProfileDetails.getUserDetails().getPassword();
+        String newPassword = userProfileDetails.getNewUserDetails().getPassword();
+        String newFirstName = userProfileDetails.getNewUserDetails().getFirstName();
+        String newLastName = userProfileDetails.getNewUserDetails().getLastName();
+        String newSecurityAnswer = userProfileDetails.getUserDetails().getSecurityAns();
+        Response response = editProfileService.editProfile(username, password, newPassword, newFirstName, newLastName, newSecurityAnswer);
         return response;
     }
 

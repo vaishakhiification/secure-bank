@@ -6,4 +6,5 @@ export class User {
   password: string;
   balance: number;
   securityAns: string;
+  newPassword: string;
 }

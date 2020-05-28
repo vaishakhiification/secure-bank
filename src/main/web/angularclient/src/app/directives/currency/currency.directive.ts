@@ -22,7 +22,8 @@ export class CurrencyDirective {
   @HostListener('input', ['$event'])
   onInputChange(event) {
     const initialValue = this.element.nativeElement.value;
-    let num = initialValue.replace(/^0+/, '');
+    // let num = initialValue.replace(/^0+/, '');
+    let num = initialValue.replace(/\b0*([1-9][0-9]*|0)\b/, '$1');
     num = num.match(/(0|[1-9][0-9]*)(\.\d{1,2})?/)[0];
     num = Math.min(num, 99999.99);
     this.element.nativeElement.value = num;
