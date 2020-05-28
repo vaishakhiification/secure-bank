@@ -21,8 +21,8 @@ public class ForgotPasswordController {
     @Autowired
     ForgotPasswordService forgotPasswordService;
 
-    @PostMapping("/passwordhint")
-    public Response login(@RequestBody User user){
+    @PostMapping("/resetPassword")
+    public Response resetPassword(@RequestBody User user){
 
         String userName = user.getUserName();
         String password = user.getPassword();

@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from "../../models/user/user";
 import {UserService} from "../../services/user/user.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'registration',
@@ -9,8 +10,9 @@ import {UserService} from "../../services/user/user.service";
 })
 export class RegistrationComponent implements OnInit {
   user: User;
+  password: string;
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService, private router: Router) {
     this.user = new User();
   }
 
@@ -18,6 +20,22 @@ export class RegistrationComponent implements OnInit {
   }
 
   registerUser() {
-    this.userService.save(this.user).subscribe(result => alert("User Saved!"));
+    if (this.user.password !== this.password) {
+      alert("The passwords entered do not match!");
+    }
+
+    this.userService.save(this.user).subscribe(result => {
+      if (result && result.statusCode == 200) {
+        this.router.navigate(['home'], {state: {user: this.user}}).then(r => {
+          alert("New Account Created!");
+        });
+      } else {
+        alert("Error: " + result.responseMessage);
+      }
+    });
+  }
+
+  login() {
+    this.router.navigate(['login']);
   }
 }

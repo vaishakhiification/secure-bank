@@ -6,12 +6,13 @@ import {HomeComponent} from './components/home/home.component';
 import {DepositComponent} from './components/deposit/deposit.component';
 import {WithdrawComponent} from './components/withdraw/withdraw.component';
 import {ProfileComponent} from './components/profile/profile.component';
-
+import {ResetPasswordComponent} from "./components/reset-password/reset-password.component";
+// import {ResetPasswordComponent} from './components/reset-password/reset-password.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'register',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {path: 'login', component: LoginComponent},
@@ -19,7 +20,9 @@ const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'deposit', component: DepositComponent},
   {path: 'withdraw', component: WithdrawComponent},
-  {path: 'profile', component: ProfileComponent}
+  {path: 'profile', component: ProfileComponent},
+  {path: 'resetPassword', component: ResetPasswordComponent},
+  {path: '**', redirectTo: ''}
 ];
 
 @NgModule({

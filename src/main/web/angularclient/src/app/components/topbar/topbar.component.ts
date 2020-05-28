@@ -19,4 +19,8 @@ export class TopbarComponent implements OnInit {
   editProfile() {
     this.router.navigate(['profile'], {state: {user: this.userInfo}});
   }
+
+  logout() {
+    this.router.navigate(['login']);
+  }
 }
