@@ -15,8 +15,8 @@
           d="m168.203125 84v-36c0-4.417969-3.582031-8-8-8s-8 3.582031-8 8v36c0 4.417969 3.582031 8 8 8s8-3.582031 8-8zm0 0"/>
   </svg>
 
-
-  <h3>WELCOME {{userInfo.firstName | uppercase}} !</h3>
+  <h3>Welcome, </h3>
+  <h3 innerHTML={{userInfo.firstName}}>{{userInfo.firstName}}</h3>
   <div class="spacer"></div>
   <a (click)="logout()" class="btn btn-lg ">
     <div class="row">
