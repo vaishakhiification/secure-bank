@@ -15,14 +15,26 @@
   flex: 1;
 }
 
-.logoutLink h5:hover {
+.logoutLink:hover h5 {
   color: #33AEFF;
 }
 
-.logoutLink h5{
+.logoutLink h5 {
   color: #f7f7f7;
 }
 
-svg.logoutLink:hover {
+.logoutLink:hover svg {
+  fill: #33AEFF;
+}
+
+.logoutLink svg {
+  fill: white;
+}
+
+#account-logo, #bank-logo {
+  fill: white;
+}
+
+#account-logo:hover, #bank-logo:hover {
   fill: #33AEFF;
 }

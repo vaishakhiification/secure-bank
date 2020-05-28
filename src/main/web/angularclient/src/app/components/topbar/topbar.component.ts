@@ -23,4 +23,8 @@ export class TopbarComponent implements OnInit {
   logout() {
     this.router.navigate(['login']);
   }
+
+  goToHome() {
+    this.router.navigate(['home'], {state: {user: this.userInfo}});
+  }
 }
