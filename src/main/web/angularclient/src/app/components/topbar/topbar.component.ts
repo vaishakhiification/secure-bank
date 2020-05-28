@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {User} from "../../models/user/user";
 import {Router} from "@angular/router";
 import {UserService} from "../../services/user/user.service";
+import {AuthenticationService} from "../../services/authentication/authentication.service";
 
 @Component({
   selector: 'topbar',
@@ -11,7 +12,9 @@ import {UserService} from "../../services/user/user.service";
 export class TopbarComponent implements OnInit {
   @Input() userInfo: User;
 
-  constructor(private router: Router, private userService: UserService) {
+  constructor(private router: Router,
+              private userService: UserService,
+              private authenticationService: AuthenticationService) {
   }
 
   ngOnInit(): void {
@@ -25,6 +28,7 @@ export class TopbarComponent implements OnInit {
     this.userService.logout().subscribe(result => {
       if (result && result.statusCode == 200) {
         this.router.navigate(['login']).then(r => {
+          this.authenticationService.logout();
           alert("Successfully logged out!");
         });
       } else {

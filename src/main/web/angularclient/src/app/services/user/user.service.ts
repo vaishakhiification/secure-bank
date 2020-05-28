@@ -32,7 +32,6 @@ export class UserService {
   public save(user: User) {
     return this.http.post<Response>(this.registerURL, user);
   }
-
   public login(user: User) {
     return this.http.post<UserResponse>(this.loginURL, user);
   }
@@ -56,4 +55,6 @@ export class UserService {
   public logout() {
     return this.http.post<Response>(this.logoutURL, null);
   }
+
+
 }

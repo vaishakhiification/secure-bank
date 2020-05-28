@@ -4,10 +4,7 @@ import com.group2.bank.models.User;
 import com.group2.bank.resources.UserResponse;
 import com.group2.bank.services.LoginService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 /**
@@ -31,5 +28,13 @@ public class LoginController {
 
         return response;
 
+    }
+
+    @PostMapping("/getUser")
+    public UserResponse getUser(@RequestBody User user) {
+        String userName = user.getUserName();
+        String password = user.getPassword();
+        UserResponse response = loginService.getUser(userName, password);
+        return response;
     }
 }

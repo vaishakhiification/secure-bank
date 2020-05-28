@@ -3,6 +3,8 @@ import {User} from "../../models/user/user";
 import {Router} from "@angular/router";
 import {Transaction} from "../../models/transaction/transaction";
 import {UserService} from "../../services/user/user.service";
+import {Subscription} from "rxjs";
+import {AuthenticationService} from "../../services/authentication/authentication.service";
 
 @Component({
   selector: 'app-withdraw',
@@ -12,19 +14,37 @@ import {UserService} from "../../services/user/user.service";
 export class WithdrawComponent implements OnInit {
   user: User;
   withdrawalAmount: number;
+  currentUserSubscription: Subscription;
 
-  constructor(private router: Router, private userService: UserService) {
-    let state = this.router.getCurrentNavigation().extras.state;
-    if (!state) {
-      alert("Please login to proceed!");
-      this.router.navigate(['login'], {state: {user: this.user}});
-    } else {
-      this.user = state.user;
-    }
+  constructor(private router: Router,
+              private userService: UserService,
+              private authenticationService: AuthenticationService) {
+    this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
+      if (user == null) {
+        alert("Please login to proceed!");
+        this.router.navigate(['login'],);
+      } else {
+        this.authenticationService.getUser(user).subscribe(
+          result => {
+            if (result && result.statusCode === 200) {
+              this.user = result.user;
+            } else {
+              alert("Error: " + result.responseMessage);
+              return null;
+            }
+          }
+        );
+      }
+    });
     this.withdrawalAmount = 0;
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy() {
+    // unsubscribe to ensure no memory leaks
+    this.currentUserSubscription.unsubscribe();
   }
 
   back() {

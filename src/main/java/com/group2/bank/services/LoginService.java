@@ -52,4 +52,12 @@ public class LoginService {
         session.setLoggedIn(true);
         return new UserResponse(200, "User created", user);
     }
+
+    public UserResponse getUser(String userName, String password) {
+        User user = userRepository.findByUserName(userName);
+        if (!user.getPassword().equals(password)) {
+            return new UserResponse(409, "Password is incorrect", null);
+        }
+        return new UserResponse(200, "returning user", user);
+    }
 }

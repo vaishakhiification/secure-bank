@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {User} from "../../models/user/user";
 import {Router} from "@angular/router";
+import {Subscription} from "rxjs";
+import {AuthenticationService} from "../../services/authentication/authentication.service";
 
 @Component({
   selector: 'app-home',
@@ -8,20 +10,36 @@ import {Router} from "@angular/router";
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+  currentUserSubscription: Subscription;
   user: User;
 
-  constructor(private router: Router) {
-    let state = this.router.getCurrentNavigation().extras.state;
-    if (!state) {
-      alert("Please login to proceed!");
-      this.router.navigate(['login'], {state: {user: this.user}});
-    } else {
-      this.user = state.user;
-    }
+  constructor(private router: Router,
+              private authenticationService: AuthenticationService) {
+    this.currentUserSubscription = this.authenticationService.currentUser.subscribe(user => {
+      if (user == null) {
+        alert("Please login to proceed!");
+        this.router.navigate(['login'],);
+      } else {
+        this.authenticationService.getUser(user).subscribe(
+          result => {
+            if (result && result.statusCode === 200) {
+              this.user = result.user;
+            } else {
+              alert("Error: " + result.responseMessage);
+              return null;
+            }
+          }
+        );
+      }
+    });
   }
 
   ngOnInit(): void {
+  }
+
+  ngOnDestroy() {
+    // unsubscribe to ensure no memory leaks
+    this.currentUserSubscription.unsubscribe();
   }
 
   deposit() {
