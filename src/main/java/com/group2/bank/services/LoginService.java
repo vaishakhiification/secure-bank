@@ -3,6 +3,7 @@ package com.group2.bank.services;
 import com.group2.bank.models.User;
 import com.group2.bank.repositories.UserRepository;
 import com.group2.bank.resources.Response;
+import com.group2.bank.resources.UserResponse;
 import com.group2.bank.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,31 +19,35 @@ public class LoginService {
     @Autowired
     Session session;
 
-    public Response login(String userName, String password){
+    public UserResponse login(String userName, String password){
 
         //Check and validate username and password
         String regex = "[_\\-\\.0-9a-z]+";
         if(!Pattern.matches(regex,userName)){
-            return new Response(409,"invalid username entered");
+            //return new UserResponse(409,"invalid username entered");
+            return new UserResponse(409,null);
         }
         if(!Pattern.matches(regex,password)){
-            return new Response(409,"invalid password entered");
+            //return new Response(409,"invalid password entered");
+            return new UserResponse(409,null);
         }
 
         User user = userRepository.findByUserName(userName);
 
         if(user == null){
-            return new Response(409,"User doesn't exist");
+            //return new Response(409,"User doesn't exist");
+            return new UserResponse(409,null);
         }
         else if(!user.getPassword().equals(password)){
-            return new Response(409,"Password is incorrect");
+            //return new Response(409,"Password is incorrect");
+            return new UserResponse(409,null);
         }
 
 
 
-        String userAsResponse = user.toString();
+        //String userAsResponse = user.toString();
 
         session.setLoggedIn(true);
-        return new Response(200,userAsResponse);
+        return new UserResponse(200,user);
     }
 }

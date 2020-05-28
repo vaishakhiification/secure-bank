@@ -2,6 +2,7 @@ package com.group2.bank.controllers;
 
 import com.group2.bank.models.User;
 import com.group2.bank.resources.Response;
+import com.group2.bank.resources.UserResponse;
 import com.group2.bank.services.LoginService;
 import com.group2.bank.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,11 +19,11 @@ public class LoginController {
     LoginService loginService;
 
     @PostMapping("/login")
-    public Response login(@RequestBody User user){
+    public UserResponse login(@RequestBody User user){
 
         String userName = user.getUserName();
         String password = user.getPassword();
-        Response response = loginService.login(userName,password);
+        UserResponse response = loginService.login(userName,password);
 
         return response;
 
