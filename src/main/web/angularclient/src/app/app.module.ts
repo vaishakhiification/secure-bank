@@ -7,13 +7,14 @@ import {TopbarComponent} from './components/topbar/topbar.component';
 import {RegistrationComponent} from './components/registration/registration.component';
 import {LoginComponent} from './components/login/login.component';
 import {FormsModule} from '@angular/forms';
-import { HomeComponent } from './components/home/home.component';
-import { DepositComponent } from './components/deposit/deposit.component';
-import { WithdrawComponent } from './components/withdraw/withdraw.component';
-import { ProfileComponent } from './components/profile/profile.component';
-import { NumericDirective } from './directives/numeric/numeric.directive';
-import { CurrencyDirective } from './directives/currency/currency.directive';
-import { CredentialsDirective } from './directives/credentails/credentials.directive';
+import {HomeComponent} from './components/home/home.component';
+import {DepositComponent} from './components/deposit/deposit.component';
+import {WithdrawComponent} from './components/withdraw/withdraw.component';
+import {ProfileComponent} from './components/profile/profile.component';
+import {NumericDirective} from './directives/numeric/numeric.directive';
+import {CurrencyDirective} from './directives/currency/currency.directive';
+import {CredentialsDirective} from './directives/credentails/credentials.directive';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { CredentialsDirective } from './directives/credentails/credentials.direc
     ProfileComponent,
     NumericDirective,
     CurrencyDirective,
-    CredentialsDirective
+    CredentialsDirective,
+    ResetPasswordComponent
   ],
   imports: [
     BrowserModule,

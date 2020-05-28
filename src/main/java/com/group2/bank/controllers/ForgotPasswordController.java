@@ -2,7 +2,6 @@ package com.group2.bank.controllers;
 
 import com.group2.bank.models.User;
 import com.group2.bank.resources.Response;
-import com.group2.bank.resources.UserResponse;
 import com.group2.bank.services.ForgotPasswordService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -22,13 +21,13 @@ public class ForgotPasswordController {
     @Autowired
     ForgotPasswordService forgotPasswordService;
 
-    @PostMapping("/passwordhint")
-    public Response login(@RequestBody User user){
+    @PostMapping("/resetPassword")
+    public Response resetPassword(@RequestBody User user) {
 
         String userName = user.getUserName();
         String password = user.getPassword();
         String securityAnswer = user.getSecurityAns();
-        Response response = forgotPasswordService.resetPassword(userName,password,securityAnswer);
+        Response response = forgotPasswordService.resetPassword(userName, securityAnswer, password);
 
         return response;
 

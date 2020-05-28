@@ -12,12 +12,11 @@ export class HomeComponent implements OnInit {
   user: User;
 
   constructor(private router: Router) {
-    this.user = new User();
+    // this.user = new User();
     let state = this.router.getCurrentNavigation().extras.state;
     if (!state) {
-      this.user.firstName = "Vaishakhi";
-      this.user.balance = 1200;
-      this.user.userName = "vpilanka";
+      alert("Please login to proceed!");
+      this.router.navigate(['login'], {state: {user: this.user}});
     } else {
       this.user = state.user;
     }

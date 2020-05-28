@@ -1,4 +1,5 @@
 package com.group2.bank.models;
+
 import javax.persistence.*;
 
 
@@ -38,7 +39,7 @@ public class User {
     public User() {
     }
 
-    public User(String firstName, String lastName, String userName, String password, double balance,String securityAns) {
+    public User(String firstName, String lastName, String userName, String password, double balance, String securityAns) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
@@ -67,6 +68,10 @@ public class User {
         return password;
     }
 
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public double getBalance() {
         return balance;
     }
@@ -75,19 +80,21 @@ public class User {
         return securityAns;
     }
 
+
     //This method is used when the user is trying to make a transaction
     //boolean deposit field is true, if the transaction is a deposit
     //and false if it is a withdrawal
-    public void setBalance(boolean deposit, Double transactionAmount){
+    public void setBalance(boolean deposit, Double transactionAmount) {
+
         double newAmount = 0.00;
-        if(deposit == true){
+        if (deposit == true) {
             newAmount = this.balance + transactionAmount;
-        }
-        else{
+        } else {
             newAmount = this.balance - transactionAmount;
         }
         this.balance = newAmount;
     }
+
 
     //This setter method is helpful when the
     //user has forgotten the password
@@ -95,6 +102,7 @@ public class User {
     public void setSecurityAns(String securityAns) {
         this.securityAns = securityAns;
     }
+
 
     @Override
     public String toString() {

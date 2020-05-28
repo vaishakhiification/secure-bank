@@ -3,17 +3,19 @@
     <form action="/examples/actions/confirmation.php" method="post">
       <header class="mb-2"><h2 class="card-title text-center">Log in</h2></header>
       <div class="form-group">
-        <input type="text" class="form-control" placeholder="Username" required="required">
+        <input type="text" class="form-control" placeholder="Username" [(ngModel)]="user.userName"
+               [ngModelOptions]="{standalone: true}" required="required">
+      </div>
+      <div class="form-group">.
+        <input type="password" class="form-control" placeholder="Password" [(ngModel)]="user.password"
+               [ngModelOptions]="{standalone: true}" required="required">
       </div>
       <div class="form-group">
-        <input type="password" class="form-control" placeholder="Password" required="required">
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary btn-block">Log in</button>
+        <button type="submit" class="btn btn-primary btn-block" (click)="login()">Log in</button>
       </div>
       <div class="clearfix">
         <label class="float-left checkbox-inline"><input type="checkbox"> Remember me</label>
-        <a href="#" class="float-right">Forgot Password?</a>
+        <a href="\resetPassword" class="float-right btn-link">Forgot Password?</a>
       </div>
     </form>
     <p class="text-center"><a href="\register">Create an Account</a></p>
