@@ -2,27 +2,29 @@ package com.group2.bank.models;
 
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-
+import javax.persistence.*;
 
 @Entity
+@Table(name = "user")
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(name = "firstname")
     private String firstName;
 
+    @Column(name = "lastname")
     private String lastName;
 
+    @Column(name = "username")
     private String userName;
 
+    @Column(name = "password")
     private String password;
 
+    @Column(name = "balance")
     private double balance;
 
     public User() {
@@ -60,16 +62,16 @@ public class User {
         return balance;
     }
 
-    public void setBalance(Double depositAmount){
-        balanceSetter(depositAmount);
-    }
-
-    private void balanceSetter(Double depositAmount){
-
-        double newAmount = this.balance + depositAmount;
+    public void setBalance(boolean deposit, Double transactionAmount){
+        double newAmount = 0.00;
+        if(deposit == true){
+            newAmount = this.balance + transactionAmount;
+        }
+        else{
+            newAmount = this.balance - transactionAmount;
+        }
         this.balance = newAmount;
     }
-
 
     @Override
     public String toString() {

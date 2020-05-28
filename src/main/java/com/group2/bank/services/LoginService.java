@@ -3,6 +3,7 @@ package com.group2.bank.services;
 import com.group2.bank.models.User;
 import com.group2.bank.repositories.UserRepository;
 import com.group2.bank.resources.Response;
+import com.group2.bank.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,9 @@ public class LoginService {
 
     @Autowired
     UserRepository userRepository;
+
+    @Autowired
+    Session session;
 
     public Response login(String userName, String password){
 
@@ -37,6 +41,8 @@ public class LoginService {
 
 
         String userAsResponse = user.toString();
+
+        session.setLoggedIn(true);
         return new Response(200,userAsResponse);
     }
 }

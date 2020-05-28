@@ -1,5 +1,6 @@
 package com.group2.bank.controllers;
 
+import com.group2.bank.models.Transactions;
 import com.group2.bank.models.User;
 import com.group2.bank.resources.Response;
 import com.group2.bank.services.TransactionService;
@@ -17,21 +18,23 @@ public class TransactionController {
     TransactionService transactionService;
 
     @PostMapping("/deposit")
-    public Response deposit(@RequestBody User user, @RequestBody String depositAmount){
+    public Response deposit(@RequestBody Transactions transaction){
 
+        User user = transaction.getUser();
         String username = user.getUserName();
         String password = user.getPassword();
-        Double depositAmt = Double.parseDouble(depositAmount);
+        Double depositAmt = transaction.getAmount();
 
         Response response = transactionService.deposit(username,password,depositAmt);
         return response;
     }
 
     @PostMapping("/withdraw")
-    public Response withdraw(@RequestBody User user, @RequestBody String withdrawAmount){
+    public Response withdraw(@RequestBody Transactions transaction){
+        User user = transaction.getUser();
         String username = user.getUserName();
         String password = user.getPassword();
-        Double withdrawAmt = Double.parseDouble(withdrawAmount);
+        Double withdrawAmt = transaction.getAmount();
 
         Response response = transactionService.deposit(username,password,withdrawAmt);
         return response;

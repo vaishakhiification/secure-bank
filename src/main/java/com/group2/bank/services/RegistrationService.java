@@ -4,7 +4,6 @@ import com.group2.bank.models.User;
 import com.group2.bank.repositories.UserRepository;
 import com.group2.bank.resources.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.regex.Pattern;
@@ -66,13 +65,25 @@ public class RegistrationService {
             nonFractionalPart = checkBalanceValidity;
         }
         if(!(nonFractionalPart.length() > 0) || !(nonFractionalPart.length() < 5)){
-            return new Response(409,"please enter an input(max amount: 99999");
+            return new Response(409,"please enter an amount between 0 and 9999");
         }
 
-        //checking for the currency validation
+        //checking for the currency validation along with fractional value
+        //normalizing it into decimal form first
+        String validBalance = checkBalanceValidity;
+        if(!checkBalanceValidity.contains(".")){
+            validBalance = validBalance+".00";
+        }
+        else{
+            String[] tokens = validBalance.split("\\.");
+            if(!validBalance.endsWith(".") && tokens[1].length() == 1){
+                tokens[1] = tokens[1] + "0";
+                validBalance = tokens[0] + "."+tokens[1];
+            }
+        }
         regex = "0|[1-9][0-9]*[\\.]{0,1}[0-9]{2}";
-        if(!Pattern.matches(regex,checkBalanceValidity)){
-            return new Response(409,"please enter an input(max amount: 99999");
+        if(!Pattern.matches(regex,validBalance)){
+            return new Response(409,"please enter a valid balance value");
         }
         //all if conditions and if everything is good the following block saves this account
         user = new User(firstName,lastName,userName,password,balance);
