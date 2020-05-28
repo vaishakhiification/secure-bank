@@ -81,6 +81,10 @@ public class User {
         this.balance = newAmount;
     }
 
+    public void setSecurityAns(String securityAns) {
+        this.securityAns = securityAns;
+    }
+
     @Override
     public String toString() {
         return "User{" +

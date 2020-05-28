@@ -15,7 +15,7 @@ public class ForgotPasswordService {
     @Autowired
     UserRepository userRepository;
 
-    public Response resetPassword(String userName, String password, String securityAnswer) {
+    public Response resetPassword(String userName, String securityAnswer, String newPassword) {
 
         //Check and validate username and password
         String regex = "[_\\-\\.0-9a-z]+";
@@ -23,8 +23,8 @@ public class ForgotPasswordService {
             return new Response(409,"invalid username entered");
 
         }
-        if(!Pattern.matches(regex,password)){
-            return new Response(409,"invalid password entered");
+        if(!Pattern.matches(regex,newPassword)){
+            return new Response(409,"invalid new Password entered");
 
         }
 
@@ -34,12 +34,13 @@ public class ForgotPasswordService {
             return new Response(409,"User doesn't exist");
 
         }
-        else if(!user.getPassword().equals(password)){
-            return new Response(409,"Password is incorrect");
 
+        if(!securityAnswer.equals(user.getSecurityAns())){
+            return new Response(409,"incorrect security answer");
         }
-
-        return new Response(200,"new password has been sent to email, change it as soon as possible");
+        user.setSecurityAns(securityAnswer);
+        userRepository.save(user);
+        return new Response(200,"new password has been reset");
 
     }
 }
