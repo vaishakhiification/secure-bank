@@ -37,3 +37,12 @@ The features of this app include
 18. To run from command line go to the root folder of the project(bank-master) and type "mvn spring-boot:run"
 19. Application runs on 8080. So if you have any other applications running on this port, disable them first.
 
+### FrontEnd
+1. You need to have npm installed on your system.
+2. To install angular CLI run: "npm install @angular/cli@latest" on your system
+3. To run the application, open command prompt
+4. Go to bank\src\main\web\angularclient\src\app folder using "cd folderName"
+5. When you are in the app folder, run "ng serve --open" to open the application
+Note: If you get any error with angular dev kit, run the command: npm install @angular/cli@lates, then run "ng serve --open" again. All this has to be done under the app folder. 
+
+
