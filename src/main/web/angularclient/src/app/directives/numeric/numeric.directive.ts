@@ -22,9 +22,7 @@ export class NumericDirective {
   @HostListener('input', ['$event'])
   onInputChange(event) {
     const initialValue = this.element.nativeElement.value;
-    let num = this.element.nativeElement.value;
-    num = initialValue.replace(/^0+/, '');
-    // if ()
+    let num = initialValue.replace(/^0+/, '');
     num = num.match(/(0|[1-9][0-9]*)/)[0];
     num = Math.min(num, 99999);
     this.element.nativeElement.value = num;

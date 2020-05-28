@@ -8,7 +8,6 @@ import javax.persistence.*;
  * The sqlite database bank0.db has a table mapped to this called user
  * Each field in this model represents a column
  * The annotations show column names as in the database
- *
  */
 @Entity
 @Table(name = "user")
@@ -36,12 +35,6 @@ public class User {
     @Column(name = "securityans")
     private String securityAns;
 
-//    private String newPassword;
-//
-//    public String getNewPassword() {
-//        return newPassword;
-//    }
-
     public User() {
     }
 
@@ -62,8 +55,16 @@ public class User {
         return firstName;
     }
 
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
     public String getLastName() {
         return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getUserName() {
@@ -86,12 +87,11 @@ public class User {
         return securityAns;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    //This setter method is helpful when the
+    //user has forgotten the password
+    //and wants to change it using reset password option
+    public void setSecurityAns(String securityAns) {
+        this.securityAns = securityAns;
     }
 
     //This method is used when the user is trying to make a transaction
@@ -107,15 +107,6 @@ public class User {
         }
         this.balance = newAmount;
     }
-
-
-    //This setter method is helpful when the
-    //user has forgotten the password
-    //and wants to change it using reset password option
-    public void setSecurityAns(String securityAns) {
-        this.securityAns = securityAns;
-    }
-
 
     @Override
     public String toString() {

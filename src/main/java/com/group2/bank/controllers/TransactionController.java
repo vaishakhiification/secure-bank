@@ -26,25 +26,25 @@ public class TransactionController {
     TransactionService transactionService;
 
     @PostMapping("/deposit")
-    public Response deposit(@RequestBody Transactions transaction){
+    public Response deposit(@RequestBody Transactions transaction) {
 
         User user = transaction.getUser();
         String username = user.getUserName();
         String password = user.getPassword();
         Double depositAmt = transaction.getAmount();
 
-        Response response = transactionService.deposit(username,password,depositAmt);
+        Response response = transactionService.deposit(username, password, depositAmt);
         return response;
     }
 
     @PostMapping("/withdraw")
-    public Response withdraw(@RequestBody Transactions transaction){
+    public Response withdraw(@RequestBody Transactions transaction) {
         User user = transaction.getUser();
         String username = user.getUserName();
         String password = user.getPassword();
         Double withdrawAmt = transaction.getAmount();
 
-        Response response = transactionService.withdraw(username,password,withdrawAmt);
+        Response response = transactionService.withdraw(username, password, withdrawAmt);
         return response;
 
     }

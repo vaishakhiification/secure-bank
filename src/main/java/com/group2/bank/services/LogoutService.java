@@ -2,7 +2,6 @@ package com.group2.bank.services;
 
 
 import com.group2.bank.resources.Response;
-import com.group2.bank.resources.UserResponse;
 import com.group2.bank.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,10 +14,10 @@ public class LogoutService {
 
     public Response logout() {
 
-        if(session.isLoggedIn()){
+        if (session.isLoggedIn()) {
             session.setLoggedIn(false);
         }
-        return new Response(200,"Logged Out");
+        return new Response(200, "Logged Out");
 
     }
 }

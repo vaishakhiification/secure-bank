@@ -12,15 +12,15 @@ public class Session {
 
     boolean loggedIn;
 
-    Session(){
+    Session() {
         this.loggedIn = false;
-    }
-
-    public void setLoggedIn(boolean loggedIn) {
-        this.loggedIn = loggedIn;
     }
 
     public boolean isLoggedIn() {
         return loggedIn;
+    }
+
+    public void setLoggedIn(boolean loggedIn) {
+        this.loggedIn = loggedIn;
     }
 }

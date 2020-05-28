@@ -6,9 +6,9 @@ package com.group2.bank.resources;
  */
 public class Response {
 
-    private long statusCode;
+    private final long statusCode;
 
-    private String responseMessage;
+    private final String responseMessage;
 
     public Response(long statusCode, String responseMessage) {
         this.statusCode = statusCode;

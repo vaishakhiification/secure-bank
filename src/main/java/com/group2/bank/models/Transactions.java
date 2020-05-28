@@ -1,7 +1,6 @@
 package com.group2.bank.models;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 /**
  * The Transaction Controller requires an object of this type

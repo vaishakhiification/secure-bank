@@ -33,7 +33,7 @@ public class RegistrationController {
         Double balance = user.getBalance();
         String securityAns = user.getSecurityAns();
 
-        Response response = registrationService.createUserAccount(firstName, lastName, username, password, balance,securityAns);
+        Response response = registrationService.createUserAccount(firstName, lastName, username, password, balance, securityAns);
 
         return response;
     }
