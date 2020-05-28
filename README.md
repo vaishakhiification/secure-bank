@@ -9,6 +9,12 @@ The features of this app include
 3) making transactions including deposit and withdraw
 4) editing profile
 
+## Assumptions
+1. We are making the assumption that our application will have an encryption mechanism like SSL, since this will prevent man in the middle attack. 
+2. Password while getting stored are assumed to be secure(we are not encrypting them).
+3. Since we have a single user and we are working with a local database we assume that they would be the ones getting logged out, when they use log out feature
+
+
 ## Build
 ### Backend
 1. It is recommended that you open this project in IntelliJ
