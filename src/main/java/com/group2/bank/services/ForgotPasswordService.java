@@ -2,6 +2,7 @@ package com.group2.bank.services;
 
 import com.group2.bank.models.User;
 import com.group2.bank.repositories.UserRepository;
+import com.group2.bank.resources.ForgotPasswordCounter;
 import com.group2.bank.resources.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,12 @@ public class ForgotPasswordService {
     @Autowired
     UserRepository userRepository;
 
-    public Response resetPassword(String userName, String securityAnswer, String newPassword) {
+   public Response resetPassword(String userName, String securityAnswer, String newPassword) {
+
+        if(forgotPasswordCounter.getCounter() >= 3){
+            return new Response(409,"Exceeded number of tries! Your account has been blocked!");
+        }
+        forgotPasswordCounter.setCounter(forgotPasswordCounter.getCounter() + 1);
         //Check and validate username and password
         String regex = "[_\\-\\.0-9a-z]+";
         if (!Pattern.matches(regex, userName)) {
